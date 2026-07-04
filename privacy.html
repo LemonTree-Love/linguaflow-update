@@ -1,45 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LinguaFlow — Privacy Policy</title>
+<title>LinguaFlow — 隐私政策 / Privacy Policy</title>
 <style>
-body{max-width:680px;margin:40px auto;padding:0 20px;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;color:#222}
-h1{font-size:24px}h2{font-size:18px;margin-top:32px}
+body{max-width:760px;margin:40px auto;padding:0 20px;font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",system-ui,sans-serif;color:#1f2937}
+h1{font-size:24px}h2{font-size:18px;margin-top:32px;border-bottom:1px solid #e5e7eb;padding-bottom:4px}
+code{background:#f3f4f6;padding:1px 5px;border-radius:4px;font-size:.9em}
+table{border-collapse:collapse;width:100%;font-size:.92em}td,th{border:1px solid #e5e7eb;padding:6px 8px;text-align:left;vertical-align:top}
+.en{color:#6b7280;font-size:.92em}li{margin:4px 0}
 </style>
 </head>
 <body>
-<h1>LinguaFlow Privacy Policy</h1>
-<p><em>Last updated: April 23, 2026</em></p>
+<h1>LinguaFlow 隐私政策 <span class="en">/ Privacy Policy</span></h1>
+<p><em>最后更新 / Last updated: 2026-07-04(旧版 2026-04-23 的更新:补全词典代理兜底、GitHub Gist 同步、TTS 与词典服务清单、Chrome 内建 AI、新增权限说明)</em></p>
 
-<h2>Data Collection</h2>
-<p>LinguaFlow does <strong>not</strong> collect, transmit, or store any personal data on external servers. All user data — including vocabulary, settings, and API keys — is stored locally on the user's device using the Chrome <code>storage.local</code> API.</p>
-
-<h2>Cloud Sync</h2>
-<p>If the user explicitly enables cloud sync (WebDAV or iCloud), data is transmitted directly between the user's device and their own chosen storage service. LinguaFlow does not operate or have access to any intermediate server in this process.</p>
-
-<h2>Third-Party API Calls</h2>
-<p>When the user configures a translation provider (e.g. DeepSeek, OpenAI, DeepL, Google, Azure), the selected text and surrounding context are sent to the chosen third-party API for translation. These requests go directly from the user's browser to the third-party service. LinguaFlow does not proxy, log, or retain any of this data.</p>
-
-<h2>Permissions</h2>
-<p>The extension requests the following permissions solely for its stated functionality:</p>
+<h2>核心承诺 / Summary</h2>
 <ul>
-<li><strong>storage</strong> — save settings and vocabulary locally</li>
-<li><strong>activeTab</strong> — access page content to highlight words and show tooltips</li>
-<li><strong>contextMenus</strong> — add a right-click translation option</li>
-<li><strong>alarms</strong> — schedule sync and export tasks</li>
-<li><strong>notifications</strong> — notify when sync or export completes</li>
-<li><strong>host_permissions (all URLs)</strong> — run content scripts for word highlighting and translation on any webpage</li>
+<li><b>没有开发者数据服务器。</b>LinguaFlow 不收集、不上传、不出售任何个人数据;<b>零遥测、零分析、零广告</b>。<span class="en">No data collection, no telemetry, no analytics, no ads, no sale of data.</span></li>
+<li><b>所有学习数据仅存本地</b>(<code>chrome.storage.local</code>):词库、复习记录、设置、API 密钥。<span class="en">All user data (vocabulary, review history, settings, API keys) stays in local browser storage.</span></li>
+<li><b>数据只在你主动使用某功能时,发往你自己选择/配置的服务</b>,且仅为完成该次功能(单一用途)。<span class="en">Data leaves your device only when you actively use a feature, only to services you chose, only for that single purpose.</span></li>
 </ul>
 
-<h2>Analytics</h2>
-<p>LinguaFlow does not include any analytics, tracking, or telemetry.</p>
+<h2>各功能的数据流向 / What goes where</h2>
+<table>
+<tr><th>功能</th><th>发送内容</th><th>接收方(由你选择/配置)</th></tr>
+<tr><td>AI 翻译(点词/整句/批量预翻译整页与 YouTube 字幕/AI 故事/测验干扰项/字幕补标点)</td><td>所查词语及其上下文句;批量模式为页面或字幕的文本片段与页面标题</td><td>你配置的提供商:OpenAI、Anthropic、Google Gemini、DeepSeek、阿里云 DashScope、智谱、Groq、OpenRouter、DeepL、MyMemory、Google 翻译免费端点,或你自定义的兼容端点(API key 由你提供,仅存本地,直连不中转)</td></tr>
+<tr><td>词典查询</td><td>查询词</td><td>Wiktionary、Free Dictionary、Cambridge、有道、Jisho、Tatoeba、Datamuse、Wikipedia</td></tr>
+<tr><td>词典查询的代理兜底</td><td>仅公共词典的查询词(绝不含 API key、词库或任何个人数据)</td><td>当浏览器直连被 CORS 拦截时,经开发者的 Cloudflare Worker 或公共 CORS 代理(allorigins/codetabs/corsproxy/thingproxy)透传;不记录、不留存</td></tr>
+<tr><td>语音朗读(可选云端声)</td><td>朗读文本</td><td>Azure、Google Cloud TTS、OpenAI、ElevenLabs(各需你自己的 key);默认系统本地语音不联网</td></tr>
+<tr><td>Chrome 内建 AI(可选)</td><td>——</td><td>Gemini Nano 在你的设备本地运行,不联网</td></tr>
+<tr><td>云同步(可选,默认关)</td><td>词库与学习进度</td><td>你自己的 GitHub Gist(用你的 token)或你配置的 WebDAV(如坚果云);开发者无任何中间服务器,亦无法访问</td></tr>
+</table>
 
-<h2>Changes</h2>
-<p>If this policy changes, the updated version will be posted at this URL.</p>
+<h2>权限用途 / Permissions</h2>
+<ul>
+<li><code>host_permissions &lt;all_urls&gt;</code> + <code>scripting</code> — 在你浏览的页面上取词、高亮、增强字幕;页面内容在本地处理,不上传。</li>
+<li><code>storage</code> / <code>unlimitedStorage</code> — 本地保存词库与设置(大词库不受 10MB 限制)。</li>
+<li><code>activeTab</code> / <code>contextMenus</code> — 右键翻译与页内工具。</li>
+<li><code>alarms</code> / <code>notifications</code> — 复习提醒与任务完成通知。</li>
+<li><code>sidePanel</code> — 浏览器侧栏学习面板。</li>
+</ul>
 
-<h2>Contact</h2>
-<p>Questions or concerns: <a href="mailto:a2121441645@gmail.com">a2121441645@gmail.com</a></p>
+<h2>数据最小化与变更披露 / Minimization &amp; changes</h2>
+<p>每项数据的采集与发送均以完成对应功能所需为限;不用于任何其他目的。数据实践如有变更,将在本页面与扩展更新说明中<b>先行披露</b>后方才生效。<span class="en">Collection is limited to what each feature needs. Any change to these practices will be proactively disclosed here and in release notes before taking effect.</span></p>
+<p>联系 / Contact: a4416452121@gmail.com · <a href="https://github.com/LemonTree-Love/linguaflow-update">GitHub</a></p>
 </body>
 </html>
