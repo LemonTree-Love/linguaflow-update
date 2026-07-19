@@ -1,0 +1,14 @@
+# v1.17.1277 — Pages 发布仓瘦身。
+#
+# 历史版本 CRX 归档已移出本仓到 ../linguaflow-crx-archive/(本地保留,
+# 1834 个文件 4.0GB 一个没删)。原因:GitHub Pages 把整个仓库打包成
+# 部署 artifact,archive/ 让它涨到 4.27GB,已超 1GB 上限——部署日志
+# 明写 "Deployment might fail"。本仓只服务 linguaflow.crx / updates.xml
+# / privacy.html,历史版本从来没有公网引用。
+#
+# 回滚某个历史版本 = 从 ../linguaflow-crx-archive/ 取出对应 CRX 覆盖
+# linguaflow.crx,再把 updates.xml 版本号改回去即可。
+archive/
+
+.DS_Store
+test-results/
