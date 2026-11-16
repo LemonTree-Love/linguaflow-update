@@ -14,7 +14,7 @@ table{border-collapse:collapse;width:100%;font-size:.92em}td,th{border:1px solid
 </head>
 <body>
 <h1>LinguaFlow 隐私政策 <span class="en">/ Privacy Policy</span></h1>
-<p><em>最后更新 / Last updated: 2026-07-04(旧版 2026-04-23 的更新:补全词典代理兜底、GitHub Gist 同步、TTS 与词典服务清单、Chrome 内建 AI、新增权限说明)</em></p>
+<p><em>最后更新 / Last updated: 2026-11-17(本次只改一处:「Chrome 内置翻译」一行——文字在本机翻译,第一次使用某对语言时由浏览器下载语言包;其余同 2026-07-04 版:词典代理兜底、GitHub Gist 同步、TTS 与词典服务清单、权限说明)</em></p>
 
 <h2>核心承诺 / Summary</h2>
 <ul>
@@ -30,7 +30,7 @@ table{border-collapse:collapse;width:100%;font-size:.92em}td,th{border:1px solid
 <tr><td>词典查询</td><td>查询词</td><td>Wiktionary、Free Dictionary、Cambridge、有道、Jisho、Tatoeba、Datamuse、Wikipedia</td></tr>
 <tr><td>词典查询的代理兜底</td><td>仅公共词典的查询词(绝不含 API key、词库或任何个人数据)</td><td>当浏览器直连被 CORS 拦截时,经开发者的 Cloudflare Worker 或公共 CORS 代理(allorigins/codetabs/corsproxy/thingproxy)透传;不记录、不留存</td></tr>
 <tr><td>语音朗读(可选云端声)</td><td>朗读文本</td><td>Azure、Google Cloud TTS、OpenAI、ElevenLabs(各需你自己的 key);默认系统本地语音不联网</td></tr>
-<tr><td>Chrome 内建 AI(可选)</td><td>——</td><td>Gemini Nano 在你的设备本地运行,不联网</td></tr>
+<tr><td>Chrome 内置翻译(可选)</td><td>——(文字不离开设备)</td><td>在你的设备上本地翻译;第一次使用某对语言时,由浏览器自行从 Google 下载语言包(只下载一次,不含你的任何内容)</td></tr>
 <tr><td>云同步(可选,默认关)</td><td>词库与学习进度</td><td>你自己的 GitHub Gist(用你的 token)或你配置的 WebDAV(如坚果云);开发者无任何中间服务器,亦无法访问</td></tr>
 </table>
 
